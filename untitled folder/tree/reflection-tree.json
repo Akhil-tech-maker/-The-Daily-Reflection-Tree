@@ -1,0 +1,1334 @@
+{
+  "metadata": {
+    "name": "The Daily Reflection Tree",
+    "version": "2.1",
+    "description": "A deterministic self-reflection decision tree \u2014 situational questions, non-obvious signal mapping, true branching",
+    "axes": [
+      {
+        "id": 1,
+        "name": "Locus of Control",
+        "poles": [
+          "Internal (Victor)",
+          "External (Victim)"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Orientation",
+        "poles": [
+          "Contribution",
+          "Entitlement"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Radius of Concern",
+        "poles": [
+          "Others",
+          "Self"
+        ]
+      }
+    ],
+    "node_types": {
+      "start": "Entry point",
+      "question": "Behavioral MCQ \u2014 4 options, each emitting a signal. Questions are situational workplace moments, not abstract categories.",
+      "decision": "Invisible routing \u2014 compares accumulated signal counts to branch the path",
+      "reflection": "Mid-flow interpolated insight \u2014 references user's actual answer text",
+      "bridge": "Axis transition with signal-aware variant text",
+      "summary": "Final profile from 2\u00b3 = 8 archetypes, each with observation, tension, and closing question",
+      "end": "Closing screen"
+    },
+    "total_nodes": 58,
+    "profiles_count": 8
+  },
+  "tree": {
+    "a1_q1": {
+      "id": "a1_q1",
+      "type": "question",
+      "axis": 1,
+      "text": "You're walking back to your desk after a meeting that didn't go the way you expected. What's running through your head?",
+      "next": "a1_q2",
+      "options": [
+        {
+          "id": "A",
+          "text": "I'm replaying what I said \u2014 I think I lost them at the second point",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "The decision was already made before I walked in",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "I need to rethink my approach for the follow-up",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "No one in that room was actually listening",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q2": {
+      "id": "a1_q2",
+      "type": "question",
+      "axis": 1,
+      "text": "It's late afternoon and you realize you won't finish what you promised by end of day. What do you find yourself thinking?",
+      "next": "a1_q3",
+      "options": [
+        {
+          "id": "A",
+          "text": "I should have scoped this differently from the start",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "Three things that weren't mine to handle ate my morning",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "I'll rework the plan and deliver the most important piece tonight",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "The timeline was unrealistic \u2014 no one could have made this work",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q3": {
+      "id": "a1_q3",
+      "type": "question",
+      "axis": 1,
+      "text": "Your manager sends a brief, slightly critical message. You can't tell how serious it is. What happens in your body over the next ten minutes?",
+      "next": "dec_a1_1",
+      "options": [
+        {
+          "id": "A",
+          "text": "I start drafting what I'll say \u2014 facts, context, what I'd do differently",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "A knot forms. This will go badly no matter what I do",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "I set it aside until I have more information to respond to",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "I start wondering what else is going wrong that I haven't been told about",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "dec_a1_1": {
+      "id": "dec_a1_1",
+      "type": "decision",
+      "true_next": "a1_q4_int",
+      "false_next": "a1_q4_ext",
+      "condition": {
+        "left": "axis1_internal",
+        "op": ">=",
+        "right": "axis1_external"
+      }
+    },
+    "a1_q4_int": {
+      "id": "a1_q4_int",
+      "type": "question",
+      "axis": 1,
+      "text": "You've been reaching for the wheel all day. Think about the last thing that frustrated you \u2014 did you also feel a flicker of 'this is my fault, even though it probably isn't'?",
+      "next": "a1_q5",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes \u2014 I default to blame-myself-first. It's automatic",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "Not fault exactly, but I keep thinking about what I could have done",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "C",
+          "text": "No \u2014 I was frustrated because someone else genuinely dropped the ball",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "D",
+          "text": "I felt responsible for fixing it, even though I didn't cause it",
+          "signal": "axis1_internal"
+        }
+      ]
+    },
+    "a1_q4_ext": {
+      "id": "a1_q4_ext",
+      "type": "question",
+      "axis": 1,
+      "text": "Think about one thing that went wrong today. Not the biggest thing \u2014 a small one. Is there a version of events where one different choice by you would have changed the outcome?",
+      "next": "a1_q5",
+      "options": [
+        {
+          "id": "A",
+          "text": "Honestly, maybe. I could have spoken up earlier",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "I've thought about it and no \u2014 the pieces weren't in my hands",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "There was a moment, but I didn't have enough information to act on it",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "D",
+          "text": "Yes. I saw it coming and I didn't move",
+          "signal": "axis1_internal"
+        }
+      ]
+    },
+    "a1_q5": {
+      "id": "a1_q5",
+      "type": "question",
+      "axis": 1,
+      "text": "Someone gave you feedback today that felt off. Not cruel \u2014 just like they weren't seeing the full picture. What did you sit with afterward?",
+      "next": "a1_q6",
+      "options": [
+        {
+          "id": "A",
+          "text": "What part of it might be true, even if it stung",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "They don't know what I was dealing with when I made that choice",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "Whether I should have made my reasoning more visible earlier",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "The gap between how hard I tried and how it was received",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q6": {
+      "id": "a1_q6",
+      "type": "question",
+      "axis": 1,
+      "text": "There was a point today where the pressure was real. Not dramatic \u2014 just the low hum of too much to do. What did you actually do in that moment?",
+      "next": "chk_a1",
+      "options": [
+        {
+          "id": "A",
+          "text": "Picked the one thing I could finish and did it",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "Sat with it, feeling stuck, not sure where to start",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "Vented to someone \u2014 I needed to say it out loud",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "D",
+          "text": "Reorganized my list and cut what wasn't essential",
+          "signal": "axis1_internal"
+        }
+      ]
+    },
+    "chk_a1": {
+      "id": "chk_a1",
+      "type": "decision",
+      "true_next": "ref_a1_int",
+      "false_next": "ref_a1_ext",
+      "condition": {
+        "left": "axis1_internal",
+        "op": ">=",
+        "right": "axis1_external"
+      }
+    },
+    "ref_a1_int": {
+      "id": "ref_a1_int",
+      "type": "reflection",
+      "axis": 1,
+      "text": "You said '{a1_q1}' after a meeting went sideways. And when pressure built, you '{a1_q6}'. There's a steady hand reaching for the wheel today. The question isn't whether you're driving \u2014 you are. The question is whether you let anyone else navigate.",
+      "next": "a1_q7"
+    },
+    "ref_a1_ext": {
+      "id": "ref_a1_ext",
+      "type": "reflection",
+      "axis": 1,
+      "text": "You said '{a1_q1}' after a meeting went sideways. And when pressure built, you '{a1_q6}'. Today has felt like weather \u2014 something happening around you, not through you. But notice: even describing it this way is a choice. That noticing is already agency.",
+      "next": "a1_q7"
+    },
+    "a1_q7": {
+      "id": "a1_q7",
+      "type": "question",
+      "axis": 1,
+      "text": "Think of one moment today that went well. Not a big win \u2014 just a moment where things clicked. What made it work?",
+      "next": "a1_q8",
+      "options": [
+        {
+          "id": "A",
+          "text": "I made a specific choice that set it up",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "The right people happened to be in the room",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "I'd been thinking about it for a while and the preparation showed",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "Honestly, I got lucky \u2014 the timing worked out",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q8": {
+      "id": "a1_q8",
+      "type": "question",
+      "axis": 1,
+      "text": "A process or system made your work harder today. Something that shouldn't be this complicated, but is. What did you do with that friction?",
+      "next": "a1_q9",
+      "options": [
+        {
+          "id": "A",
+          "text": "Started thinking about how to change it, even a little",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "Pushed through it, but it wore me down",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "Found a workaround and moved on",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "Added it to the list of things that never get fixed around here",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q9": {
+      "id": "a1_q9",
+      "type": "question",
+      "axis": 1,
+      "text": "Someone pushed back on your work today. Not your effort \u2014 your actual output. The thing you made or decided. What happened inside you?",
+      "next": "dec_a1_2",
+      "options": [
+        {
+          "id": "A",
+          "text": "Curiosity first \u2014 what are they seeing that I'm not?",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "A flash of 'you don't understand what went into this'",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "I went quiet and started rethinking my approach",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "Frustration \u2014 the goalposts moved and no one told me",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "dec_a1_2": {
+      "id": "dec_a1_2",
+      "type": "decision",
+      "true_next": "a1_q10_int",
+      "false_next": "a1_q10_ext",
+      "condition": {
+        "left": "axis1_internal",
+        "op": ">=",
+        "right": "axis1_external"
+      }
+    },
+    "a1_q10_int": {
+      "id": "a1_q10_int",
+      "type": "question",
+      "axis": 1,
+      "text": "You keep reaching for the wheel. Here's the hard question: was there anything today that genuinely wasn't yours to carry \u2014 and you carried it anyway?",
+      "next": "a1_q11",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes. I took on something that wasn't mine because no one else would",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "I'm not sure where my responsibility ends and theirs begins anymore",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "C",
+          "text": "Actually, yes \u2014 and I'm tired of it",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "D",
+          "text": "Probably, but if I don't carry it, it falls",
+          "signal": "axis1_internal"
+        }
+      ]
+    },
+    "a1_q10_ext": {
+      "id": "a1_q10_ext",
+      "type": "question",
+      "axis": 1,
+      "text": "You've described a day that pushed you around. But think small. Was there one moment \u2014 even sixty seconds \u2014 where you chose how to respond instead of just reacting?",
+      "next": "a1_q11",
+      "options": [
+        {
+          "id": "A",
+          "text": "There was. I paused before replying to something that annoyed me",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "I chose to let something go instead of fighting it",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "C",
+          "text": "I can't think of one \u2014 I was in reaction mode all day",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "D",
+          "text": "Maybe, but it felt so small it doesn't count",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q11": {
+      "id": "a1_q11",
+      "type": "question",
+      "axis": 1,
+      "text": "Think of one thing today that was genuinely out of your control. A rule, a decision, a reality you couldn't change. What did you do inside that constraint?",
+      "next": "a1_q12",
+      "options": [
+        {
+          "id": "A",
+          "text": "Found the one degree of freedom I still had and used it",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "Accepted it, but it cost me something to accept",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "Pushed back, even knowing it probably wouldn't change",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "Let it define the rest of my afternoon",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a1_q12": {
+      "id": "a1_q12",
+      "type": "question",
+      "axis": 1,
+      "text": "Last question on this thread. Complete this sentence honestly: 'Today, I mostly\u2026'",
+      "next": "bridge1",
+      "options": [
+        {
+          "id": "A",
+          "text": "\u2026chose how I showed up, even when the situation was hard",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "B",
+          "text": "\u2026responded to what came at me, as best I could",
+          "signal": "axis1_external"
+        },
+        {
+          "id": "C",
+          "text": "\u2026shaped at least one thing that mattered to me",
+          "signal": "axis1_internal"
+        },
+        {
+          "id": "D",
+          "text": "\u2026got through it",
+          "signal": "axis1_external"
+        }
+      ]
+    },
+    "a2_q1": {
+      "id": "a2_q1",
+      "type": "question",
+      "axis": 2,
+      "text": "A colleague you don't know well seemed off today \u2014 quieter than usual, maybe struggling with something. You noticed. What did you do with that noticing?",
+      "next": "a2_q2",
+      "options": [
+        {
+          "id": "A",
+          "text": "Went over and asked if they were okay",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "Thought about it for a second, then got back to my own work",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "Sent a brief message \u2014 nothing big, just an acknowledgment",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "D",
+          "text": "Figured it wasn't my place. They'd ask if they needed something",
+          "signal": "axis2_entitlement"
+        }
+      ]
+    },
+    "a2_q2": {
+      "id": "a2_q2",
+      "type": "question",
+      "axis": 2,
+      "text": "You contributed meaningfully to something today, but when the story was retold, your name wasn't in it. What did that actually feel like?",
+      "next": "a2_q3",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fine. The outcome mattered more than the attribution",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "A small sting, even though I know it shouldn't matter",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I made a mental note. I didn't say anything, but I noticed",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "I made a point to mention someone else's contribution instead",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a2_q3": {
+      "id": "a2_q3",
+      "type": "question",
+      "axis": 2,
+      "text": "Something tedious needed doing today \u2014 the kind of task that no one volunteers for. Be honest about what happened.",
+      "next": "dec_a2_1",
+      "options": [
+        {
+          "id": "A",
+          "text": "I did it before anyone had to ask",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "I waited to see if someone else would pick it up first",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I did it, but I resented that it always seems to fall to me",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "I did it and genuinely didn't mind",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "dec_a2_1": {
+      "id": "dec_a2_1",
+      "type": "decision",
+      "true_next": "a2_q4_con",
+      "false_next": "a2_q4_ent",
+      "condition": {
+        "left": "axis2_contribution",
+        "op": ">=",
+        "right": "axis2_entitlement"
+      }
+    },
+    "a2_q4_con": {
+      "id": "a2_q4_con",
+      "type": "question",
+      "axis": 2,
+      "text": "You've been giving freely today. Here's the uncomfortable question: when you helped someone, was any part of it because you'd feel guilty if you didn't?",
+      "next": "a2_q5",
+      "options": [
+        {
+          "id": "A",
+          "text": "Probably yes. I don't like the feeling of not helping when I could",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "No \u2014 I wanted to. It wasn't obligation",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "C",
+          "text": "A little. I worry about what people think if I don't step up",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "I don't analyze it \u2014 I just do what needs doing",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a2_q4_ent": {
+      "id": "a2_q4_ent",
+      "type": "question",
+      "axis": 2,
+      "text": "Think about today \u2014 not the big moments, the tiny ones. Did you hold a door, explain something twice, stay on a call an extra minute for someone else's sake?",
+      "next": "a2_q5",
+      "options": [
+        {
+          "id": "A",
+          "text": "Actually yes. I did something small I hadn't thought about until now",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "Not really \u2014 I was heads down on my own priorities",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I think so, but it didn't feel like 'helping' \u2014 it was just normal",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "D",
+          "text": "I was too stretched to give anything extra today",
+          "signal": "axis2_entitlement"
+        }
+      ]
+    },
+    "a2_q5": {
+      "id": "a2_q5",
+      "type": "question",
+      "axis": 2,
+      "text": "There was a moment today when you could have cut a corner and no one would have noticed. What happened?",
+      "next": "a2_q6",
+      "options": [
+        {
+          "id": "A",
+          "text": "I did it the right way anyway \u2014 it matters to me",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "I cut the corner. I needed the time more than the quality",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I did it right, but I was aware that no one would notice or care",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "I didn't even think about cutting the corner",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a2_q6": {
+      "id": "a2_q6",
+      "type": "question",
+      "axis": 2,
+      "text": "A team goal and a personal goal competed for your attention today. Only one could get your best energy. Which one got it?",
+      "next": "chk_a2",
+      "options": [
+        {
+          "id": "A",
+          "text": "The team goal \u2014 my personal stuff can wait",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "My personal goal \u2014 I need to protect my own trajectory",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I tried to split it and neither got my best",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "The team goal, because their success pulls me forward too",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "chk_a2": {
+      "id": "chk_a2",
+      "type": "decision",
+      "true_next": "ref_a2_con",
+      "false_next": "ref_a2_ent",
+      "condition": {
+        "left": "axis2_contribution",
+        "op": ">=",
+        "right": "axis2_entitlement"
+      }
+    },
+    "ref_a2_con": {
+      "id": "ref_a2_con",
+      "type": "reflection",
+      "axis": 2,
+      "text": "You said '{a2_q1}' when someone seemed off. And when no one was watching, '{a2_q5}'. You've been investing in things that don't pay you back directly today. That's not common. The question worth sitting with: is this generosity, or is it a habit you can't stop?",
+      "next": "a2_q7"
+    },
+    "ref_a2_ent": {
+      "id": "ref_a2_ent",
+      "type": "reflection",
+      "axis": 2,
+      "text": "You said '{a2_q1}' when someone seemed off. And when no one was watching, '{a2_q5}'. You've been keeping close accounts today \u2014 tracking what's fair, what's yours, what's owed. That's not selfishness. It might be self-preservation. But notice the ledger.",
+      "next": "a2_q7"
+    },
+    "a2_q7": {
+      "id": "a2_q7",
+      "type": "question",
+      "axis": 2,
+      "text": "Be honest about what you wanted from work today. Not what you should want \u2014 what you actually wanted when you sat down this morning.",
+      "next": "a2_q8",
+      "options": [
+        {
+          "id": "A",
+          "text": "To make something better than I found it",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "To get through my list and go home",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "To feel like my effort was seen and valued",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "To do something that mattered to someone other than me",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a2_q8": {
+      "id": "a2_q8",
+      "type": "question",
+      "axis": 2,
+      "text": "Think of the most invisible thing you did today \u2014 something that kept the work moving but will never show up in a dashboard or a review. How do you feel about it?",
+      "next": "dec_a2_2",
+      "options": [
+        {
+          "id": "A",
+          "text": "Good. The work itself was the point",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "A little resentful, honestly. Invisible work doesn't get promoted",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I didn't do anything invisible today \u2014 I focused on what's measurable",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "Satisfied, but I notice I wish someone knew",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "dec_a2_2": {
+      "id": "dec_a2_2",
+      "type": "decision",
+      "true_next": "a2_q9_con",
+      "false_next": "a2_q9_ent",
+      "condition": {
+        "left": "axis2_contribution",
+        "op": ">=",
+        "right": "axis2_entitlement"
+      }
+    },
+    "a2_q9_con": {
+      "id": "a2_q9_con",
+      "type": "question",
+      "axis": 2,
+      "text": "You give more than most people around you. You probably know this. What's the part of that you don't say out loud?",
+      "next": "a2_q10",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sometimes I give because I don't know how to stop",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "I do keep a quiet tally, even though I don't act on it",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I'm afraid that if I stop giving, I stop mattering",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "I've made peace with it. This is who I choose to be",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a2_q9_ent": {
+      "id": "a2_q9_ent",
+      "type": "question",
+      "axis": 2,
+      "text": "Forget the big gestures. Did you do one small thing today purely because it would make someone else's day slightly easier \u2014 with zero benefit to you?",
+      "next": "a2_q10",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes, and I'd forgotten about it until just now",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "I'm struggling to think of one",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I did something, but it was partly self-serving too",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "Yes \u2014 and it was actually the best moment of my day",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a2_q10": {
+      "id": "a2_q10",
+      "type": "question",
+      "axis": 2,
+      "text": "Someone you work closely with gets recognized for something you also shaped. In the thirty seconds after you hear the news \u2014 before you compose yourself \u2014 what's the first thing you feel?",
+      "next": "bridge2",
+      "options": [
+        {
+          "id": "A",
+          "text": "Genuine happiness for them. They earned it",
+          "signal": "axis2_contribution"
+        },
+        {
+          "id": "B",
+          "text": "Happy for them, but a quiet voice asking 'what about me?'",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "C",
+          "text": "I'm already thinking about what I need to do differently to be next",
+          "signal": "axis2_entitlement"
+        },
+        {
+          "id": "D",
+          "text": "Proud \u2014 because I helped build what they were recognized for",
+          "signal": "axis2_contribution"
+        }
+      ]
+    },
+    "a3_q1": {
+      "id": "a3_q1",
+      "type": "question",
+      "axis": 3,
+      "text": "You made a decision today that affected more than just you. In the moment you made it, whose face came to mind?",
+      "next": "a3_q2",
+      "options": [
+        {
+          "id": "A",
+          "text": "My own \u2014 how this would affect my workload, my standing",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "B",
+          "text": "My team \u2014 specifically who would be helped or burdened by it",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "C",
+          "text": "Someone downstream I've never met \u2014 a customer, a user, a patient",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "No one's face, honestly. I was thinking about the task, not the people",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "a3_q2": {
+      "id": "a3_q2",
+      "type": "question",
+      "axis": 3,
+      "text": "You and someone else saw a situation differently today. By the end of the conversation, could you state their position as well as they could?",
+      "next": "dec_a3_1",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes \u2014 I made a point to understand before I responded",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "B",
+          "text": "Partially \u2014 I got the surface but probably missed what was underneath",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "C",
+          "text": "No \u2014 I was focused on making my own point clear",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "D",
+          "text": "I didn't try. I needed the outcome more than the understanding",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "dec_a3_1": {
+      "id": "dec_a3_1",
+      "type": "decision",
+      "true_next": "a3_q3_oth",
+      "false_next": "a3_q3_self",
+      "condition": {
+        "left": "axis3_others",
+        "op": ">=",
+        "right": "axis3_self"
+      }
+    },
+    "a3_q3_oth": {
+      "id": "a3_q3_oth",
+      "type": "question",
+      "axis": 3,
+      "text": "You've been holding other people in mind today. Is that a deliberate practice, or is it something else?",
+      "next": "a3_q4",
+      "options": [
+        {
+          "id": "A",
+          "text": "It's deliberate \u2014 I've trained myself to think past my own desk",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "B",
+          "text": "It's mostly automatic \u2014 I just see how things connect to people",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "C",
+          "text": "Honestly, it might be a way of avoiding my own stuff",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "D",
+          "text": "Someone's situation today made it impossible not to think about them",
+          "signal": "axis3_others"
+        }
+      ]
+    },
+    "a3_q3_self": {
+      "id": "a3_q3_self",
+      "type": "question",
+      "axis": 3,
+      "text": "Your focus has been close to home today. Try this: name one person who was affected by a choice you made today \u2014 someone you didn't think about at the time.",
+      "next": "a3_q4",
+      "options": [
+        {
+          "id": "A",
+          "text": "Actually, yes \u2014 someone comes to mind. I wasn't thinking of them",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "B",
+          "text": "I'm sure someone was affected, but I genuinely don't know who",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "C",
+          "text": "My immediate team, probably. I was too focused to check",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "I think my scope was the right scope today. Not everything needs to be wider",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "a3_q4": {
+      "id": "a3_q4",
+      "type": "question",
+      "axis": 3,
+      "text": "You ran into a problem today that you've seen before \u2014 same kind of issue, different day. What did you do with that pattern recognition?",
+      "next": "a3_q5",
+      "options": [
+        {
+          "id": "A",
+          "text": "Fixed the immediate instance and moved on",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "B",
+          "text": "Mentioned it to someone who might be able to change the root cause",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "C",
+          "text": "Started thinking about what would prevent this for everyone, not just me",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "Noticed the pattern but didn't have the energy to do anything with it",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "a3_q5": {
+      "id": "a3_q5",
+      "type": "question",
+      "axis": 3,
+      "text": "Something frustrated you today. In that frustrated moment, how much of the world could you see?",
+      "next": "chk_a3",
+      "options": [
+        {
+          "id": "A",
+          "text": "Just the thing in front of me. My field of vision narrowed",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "B",
+          "text": "I was frustrated on behalf of my team, not just myself",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "C",
+          "text": "I could see the systemic issue behind my frustration",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "Just me. I was the center of my own frustration",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "chk_a3": {
+      "id": "chk_a3",
+      "type": "decision",
+      "true_next": "ref_a3_oth",
+      "false_next": "ref_a3_self",
+      "condition": {
+        "left": "axis3_others",
+        "op": ">=",
+        "right": "axis3_self"
+      }
+    },
+    "ref_a3_oth": {
+      "id": "ref_a3_oth",
+      "type": "reflection",
+      "axis": 3,
+      "text": "You said '{a3_q2}' in a disagreement, and '{a3_q5}' when you were frustrated. Even under pressure, your awareness included other people. That's rare \u2014 and it's exhausting. Not everyone who sees widely has learned to rest within that seeing.",
+      "next": "a3_q6"
+    },
+    "ref_a3_self": {
+      "id": "ref_a3_self",
+      "type": "reflection",
+      "axis": 3,
+      "text": "You said '{a3_q2}' in a disagreement, and '{a3_q5}' when you were frustrated. Today your lens stayed close \u2014 tight focus on what's right in front of you. That's not a failure of empathy. Sometimes the radius contracts because the center needs tending.",
+      "next": "a3_q6"
+    },
+    "a3_q6": {
+      "id": "a3_q6",
+      "type": "question",
+      "axis": 3,
+      "text": "Think about the end product of your work \u2014 not your deliverable, but what it becomes when it reaches the person who actually uses it. How present was that person in your thinking today?",
+      "next": "a3_q7",
+      "options": [
+        {
+          "id": "A",
+          "text": "Very \u2014 I made at least one decision today with their experience in mind",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "B",
+          "text": "They crossed my mind, but they didn't change what I did",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "C",
+          "text": "Not at all. I was thinking about the people in the building, not outside it",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "D",
+          "text": "I thought about them more than my immediate stakeholders, actually",
+          "signal": "axis3_others"
+        }
+      ]
+    },
+    "a3_q7": {
+      "id": "a3_q7",
+      "type": "question",
+      "axis": 3,
+      "text": "Right now, in this moment \u2014 which of these feels most true about your work?",
+      "next": "dec_a3_2",
+      "options": [
+        {
+          "id": "A",
+          "text": "I have tasks. I complete them. That's the agreement",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "B",
+          "text": "I'm part of something that extends well beyond my job description",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "C",
+          "text": "My work creates ripples I can trace to real people",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "I do what's asked and I do it well. The bigger picture is someone else's job",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "dec_a3_2": {
+      "id": "dec_a3_2",
+      "type": "decision",
+      "true_next": "a3_q8_oth",
+      "false_next": "a3_q8_self",
+      "condition": {
+        "left": "axis3_others",
+        "op": ">=",
+        "right": "axis3_self"
+      }
+    },
+    "a3_q8_oth": {
+      "id": "a3_q8_oth",
+      "type": "question",
+      "axis": 3,
+      "text": "You've been holding a wide view today. Here's the question people with wide lenses tend to avoid: did you use that wider view to change something you did today, or did you just hold it and feel heavy?",
+      "next": "bridge3",
+      "options": [
+        {
+          "id": "A",
+          "text": "I used it \u2014 it changed at least one decision I made",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "B",
+          "text": "I held it. It felt important but I didn't act on it",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "C",
+          "text": "Both \u2014 I acted on some of it and sat with the rest",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "Honestly, the wideness made it harder to act at all",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "a3_q8_self": {
+      "id": "a3_q8_self",
+      "type": "question",
+      "axis": 3,
+      "text": "Last question. Tomorrow, when you sit down to work \u2014 is there one person outside your immediate scope whose experience you could hold in mind? Not help. Not fix anything for. Just notice they exist.",
+      "next": "bridge3",
+      "options": [
+        {
+          "id": "A",
+          "text": "Yes. Someone came to mind just now",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "B",
+          "text": "I'd like to, but I know I'll forget as soon as things get busy",
+          "signal": "axis3_self"
+        },
+        {
+          "id": "C",
+          "text": "I think so. It's a small shift but it might change something",
+          "signal": "axis3_others"
+        },
+        {
+          "id": "D",
+          "text": "I think I need to take care of myself before I expand outward",
+          "signal": "axis3_self"
+        }
+      ]
+    },
+    "bridge1": {
+      "id": "bridge1",
+      "type": "bridge",
+      "heading": "Shifting Focus"
+    },
+    "variants": {
+      "id": "variants",
+      "next": "summary",
+      "condition": {
+        "left": "axis3_others",
+        "op": ">=",
+        "right": "axis3_self"
+      },
+      "variants": {
+        "condition": {
+          "left": "axis3_others",
+          "op": ">=",
+          "right": "axis3_self"
+        },
+        "true_text": "You've been holding a wide lens \u2014 aware of people and systems beyond your immediate scope.\n\nWhat follows isn't a score or a label. It's a reflection of the patterns you've described today.",
+        "false_text": "You've been focused inward \u2014 processing your own experience with attention and honesty.\n\nWhat follows isn't a judgment. It's a mirror made of the choices you've described."
+      }
+    },
+    "bridge2": {
+      "id": "bridge2",
+      "type": "bridge",
+      "heading": "Widening the Lens"
+    },
+    "bridge3": {
+      "id": "bridge3",
+      "type": "bridge",
+      "heading": "Coming Together"
+    },
+    "start": {
+      "id": "start",
+      "type": "start",
+      "text": "A quiet space to observe how you showed up today.\\n\\nNo scores. No judgments. Just honest noticing.",
+      "heading": "The Daily Reflection Tree",
+      "cta": "Begin Reflection",
+      "next": "a1_q1"
+    },
+    "summary": {
+      "id": "summary",
+      "type": "summary",
+      "next": "end"
+    },
+    "end": {
+      "id": "end",
+      "type": "end",
+      "text": "Reflection is a practice, not a destination.\\n\\nCome back tomorrow and see what's changed.",
+      "heading": "Thank you for pausing.",
+      "cta": "Start Again"
+    }
+  },
+  "profiles": {
+    "internal_contribution_others": {
+      "label": "The Grounded Steward",
+      "text": "You took responsibility for your day, gave more than was asked, and held people in mind who weren't in the room. That's a rare combination \u2014 agency, generosity, and breadth in the same person on the same day.",
+      "tension": "Here's what stewards don't say out loud: the weight is real. You carry things that aren't yours because you can see them and no one else is picking them up. That's not sustainability. That's a slow leak.",
+      "question": "What would it look like to hold your standards \u2014 without holding everything?"
+    },
+    "internal_contribution_self": {
+      "label": "The Focused Builder",
+      "text": "You own your outcomes and you build with care. When things broke, you fixed them. When no one was watching, you did the work right anyway. Your focus was tight and productive today \u2014 energy pointed at the craft, not the crowd.",
+      "tension": "The edge of focused building is tunnel vision. You build well \u2014 but the person standing just outside your frame might have needed something from you today that you didn't see.",
+      "question": "Whose experience was quietly shaped by what you built today \u2014 and did you notice?"
+    },
+    "internal_entitlement_others": {
+      "label": "The Aware Contractor",
+      "text": "You see the system clearly \u2014 who does what, who gets what, where the gaps are. You take ownership of your own work and you genuinely notice other people. But today, you were tracking the fairness of it all more than the giving.",
+      "tension": "Awareness without generosity becomes surveillance. You see everything \u2014 but today you may have been keeping score more than keeping faith.",
+      "question": "What would change if you gave one thing today without tracking whether it came back?"
+    },
+    "internal_entitlement_self": {
+      "label": "The Independent Driver",
+      "text": "You trust yourself to deliver, and you did. You took ownership, set your own direction, and focused on what matters to you. The lens was on your work and your trajectory today.",
+      "tension": "Self-reliance is a strength until it becomes a wall. Owning everything sounds like agency, but it can quietly close the door to receiving \u2014 help, perspective, or the kind of feedback that only lands when you're not armored.",
+      "question": "Where might loosening your grip actually strengthen your position?"
+    },
+    "external_contribution_others": {
+      "label": "The Generous Adapter",
+      "text": "You gave readily today \u2014 to your team, to the work, to people who needed something. You also felt the day pressing in, the circumstances shaping you more than you shaped them. Generous, but from a reactive posture.",
+      "tension": "Generosity without agency can become self-erasure. You gave \u2014 but were you choosing to give, or just responding to whoever asked loudest?",
+      "question": "What's one thing you gave today that you also chose \u2014 not just responded to?"
+    },
+    "external_contribution_self": {
+      "label": "The Dutiful Worker",
+      "text": "You showed up and did your part. The conditions felt constraining, the scope felt predetermined, and your focus stayed on what was right in front of you. Your contribution was real, even if the conditions made it feel small.",
+      "tension": "Duty without authorship is sustainable \u2014 but rarely fulfilling. The work gets done, the worker fades. Today felt more like keeping a promise to someone else's plan than building your own.",
+      "question": "Where could you author one thing in your environment tomorrow \u2014 instead of just responding to it?"
+    },
+    "external_entitlement_others": {
+      "label": "The Frustrated Idealist",
+      "text": "You see what should be different \u2014 for the team, for the customer, for the system. The gap between what you observed and what arrived was real today. You care about fairness and you care about others. What you're short on is the lever.",
+      "tension": "Idealism without agency becomes resentment. You see the gap clearly \u2014 but watching it widens it. The frustration is evidence of caring. The question is what you do with it.",
+      "question": "What's the smallest action within reach that would close one gap you noticed today?"
+    },
+    "external_entitlement_self": {
+      "label": "The Depleted Observer",
+      "text": "Today happened to you more than through you. Energy was low, the environment felt immovable, and the lens narrowed to what was immediately in front of you. That's not a character flaw. That's what depletion looks like from the inside.",
+      "tension": "Depletion narrows everything \u2014 the lens, the agency, the generosity. When you're running on empty, even small choices become invisible. The danger isn't today. It's when today becomes every day.",
+      "question": "What's the smallest possible thing tomorrow that would feel like authorship \u2014 not productivity, just authorship?"
+    }
+  }
+}

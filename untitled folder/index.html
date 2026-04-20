@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A structured daily self-reflection tool that guides you through three axes of behavioral awareness — no AI, no scores, no judgment." />
+  <meta name="theme-color" content="#0f0f14" />
+  <title>The Daily Reflection Tree</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Daily Reflection Tree" />
+  <meta property="og:description" content="A structured mirror for self-observation. Ten minutes. Deterministic. Private." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+  <!-- Progress bar -->
+  <div id="progress-bar" role="progressbar" aria-label="Reflection progress">
+    <div id="progress-fill"></div>
+  </div>
+
+  <!-- App mount point — all screens rendered here by engine.js -->
+  <main id="app" role="main" aria-live="polite"></main>
+
+  <!-- Decision tree data (split by axis) -->
+  <script src="js/axis1.js"></script>
+  <script src="js/axis2.js"></script>
+  <script src="js/profiles.js"></script>
+  <script src="js/axis3.js"></script>
+  <!-- Core engine (state, router, renderer) -->
+  <script src="js/engine.js"></script>
+  <!-- Boot -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
